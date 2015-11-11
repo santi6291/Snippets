@@ -8,7 +8,11 @@ fs.readFile(fileName, 'utf-8', function(err, data){
 	var cleanData = data.replace( /(<<<<<<< HEAD)|(\=======[\w\W]*?\>>>>>>>.*)/g, '' );
 
 	fs.writeFile(fileName, cleanData, 'utf8', function (err) {
-		if (err) return console.log(err);
+		if (err) {
+			return console.log(err);
+		} else {
+			return console.log('Done. No Errors')
+		}
 	});
 });
 ```
