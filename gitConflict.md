@@ -1,7 +1,7 @@
 # Solve git conflic
 Purpose: will remove conflic comments and leave whatever is in HEAD
 
-use: 'node gitConflict.js ~path/to/file'
+use: `node gitConflict.js ~/path/to/file`
 
 ```
 var fs = require('fs');
