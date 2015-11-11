@@ -1,5 +1,5 @@
-# Solve git conflic
-Purpose: will remove conflic comments and leave whatever is in HEAD
+# Solve git conflict
+Purpose: will remove conflict comments and leave whatever is in HEAD
 
 use: `node gitConflict.js ~/path/to/file`
 
