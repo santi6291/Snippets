@@ -1,4 +1,23 @@
-# Solve git conflict
+# git Scripts
+
+## Aliases
+
+```
+alias new='git checkout -b'
+alias checkout='git checkout'
+alias push='git push origin'
+alias pull='git pull origin'
+alias merge='git merge'
+alias solveConflict="git add -A && git commit;"
+alias commitAll="git commit -am"
+alias ammend="git commit --ammend -m"
+
+updateBranch() {
+    pull $(git name-rev --name-only HEAD)
+}
+```
+
+## Solve git conflict (Node js)
 Purpose: will remove conflict comments and leave whatever is in HEAD
 
 use: `node gitConflict.js ~/path/to/file`
