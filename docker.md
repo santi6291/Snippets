@@ -12,6 +12,12 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -a -q)
 ```
 
+## Stop all proccesses 
+
+```
+docker stop $(docker ps -q);
+```
+
 ## [Apache - php container](https://medium.com/dev-tricks/apache-and-php-on-docker-44faef716150)
 
 ```
