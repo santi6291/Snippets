@@ -26,6 +26,7 @@ defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-t
 ```
 
 ## ssh config host search
+Change end pattern to match before next Host
 
 ```
 checkConfig() {
