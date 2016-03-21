@@ -33,3 +33,11 @@ checkConfig() {
 	sed -n "/"$1"/,/^$/p" ~/.ssh/config;
 }
 ```
+
+## load local bash file
+
+```
+string="/Users/khaliq/Sites/Fireclay-Tile"
+project=${string%% *}
+cd $project && github . && open . -g && [ $(find . -maxdepth 2 -name .bashrc-local) ] && cd $(dirname $(find . -maxdepth 2 -name .bashrc-local)) && source .bashrc-local ; cd $project && git status
+```
