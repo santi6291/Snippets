@@ -27,5 +27,5 @@ docker rmi $(docker images -aq)
 ## Remove unused images
 
 ```
-docker rmi $(docker images -aq)
+
 ```
