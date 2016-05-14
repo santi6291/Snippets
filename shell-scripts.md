@@ -41,3 +41,16 @@ string="/Users/khaliq/Sites/Fireclay-Tile"
 project=${string%% *}
 cd $project && github . && open . -g && [ $(find . -maxdepth 2 -name .bashrc-local) ] && cd $(dirname $(find . -maxdepth 2 -name .bashrc-local)) && source .bashrc-local ; cd $project && git status
 ```
+
+## DNS Resolver [dnsmasq](https://echo.co/blog/never-touch-your-local-etchosts-file-os-x-again)
+
+```
+brew install dnsmasq
+mkdir -pv $(brew --prefix)/etc/
+echo 'address=/.vmg/127.0.0.1'"\n"'address=/.local/127.0.0.1' > $(brew --prefix)/etc/dnsmasq.conf
+sudo cp -v $(brew --prefix dnsmasq)/homebrew.mxcl.dnsmasq.plist /Library/LaunchDaemons
+sudo launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+sudo mkdir -v /etc/resolver
+sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/vmg'
+sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/local'
+```
