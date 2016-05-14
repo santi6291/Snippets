@@ -1,48 +1,31 @@
 # Docker helper commands
 
-## Remove all containers
-
-```
-docker rm $(docker ps -a -q)
-```
-
-## Remove all images
-
-```
-docker rmi $(docker images -a -q)
-```
-
 ## Stop all proccesses 
 
 ```
 docker stop $(docker ps -q);
 ```
 
-## [Apache - php container](https://medium.com/dev-tricks/apache-and-php-on-docker-44faef716150)
+## Remove all containers
 
 ```
-FROM ubuntu
+docker rm $(docker ps -aq);
+```
 
-RUN apt-get update
-RUN apt-get -y upgrade
+## Remove stopped containers
 
-RUN sudo apt-get -y install apache2 php5 libapache2-mod-php5
+```
+docker rm $(docker ps -qf "status=exited");
+```
 
-# Install apache, PHP, and supplimentary programs. curl and lynx-cur are for debugging the container.
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install apache2 libapache2-mod-php5 php5-mysql php5-gd php-pear php-apc php5-curl curl lynx-cur
+## Remove all images
 
-# Enable apache mods.
-RUN a2enmod php5
-RUN a2enmod rewrite
+```
+docker rmi $(docker images -aq)
+```
 
-EXPOSE 80
+## Remove unused images
 
-# Copy site into place.
-ADD html /var/www/html
-
-# Update the default apache site with the config we created.
-ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
-
-# By default, simply start apache.
-CMD /usr/sbin/apache2ctl -D FOREGROUND
+```
+docker rmi $(docker images -aq)
 ```
