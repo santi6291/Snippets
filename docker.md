@@ -24,7 +24,7 @@ docker rm $(docker ps -qf "status=exited");
 docker rmi $(docker images -aq)
 ```
 
-## Remove unused images
+## Remove images with tag `<none>`
 
 ```
 docker rmi $(docker images -f "dangling=true" -q)
